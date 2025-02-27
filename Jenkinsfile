@@ -43,8 +43,12 @@ pipeline{
                 // sh "docker push  ${env.dockerHubUser}/new-app:latest"
                 // echo "My docker image has been pushed to docker hub"
                 // }
-
-                docker_push("docker-cred","myapp")
+                echo "Image push karna hai"
+                script{
+                docker_push("docker-cred","my-app")
+                echo "Image push ho gai hai"
+                }
+                
             }
         }
         
