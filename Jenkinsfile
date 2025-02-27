@@ -31,18 +31,20 @@ pipeline{
         
         stage("Push to Docker hub"){
             steps{
-                withCredentials([usernamePassword(
-                        credentialsId:"docker-cred",
-                        passwordVariable:"dockerHubPass",
-                        usernameVariable:"dockerHubUser"
-                    )]){
+                // withCredentials([usernamePassword(
+                //         credentialsId:"docker-cred",
+                //         passwordVariable:"dockerHubPass",
+                //         usernameVariable:"dockerHubUser"
+                //     )]){
                     
-                echo "Pushing my image in docker hub"
-                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                sh "docker image tag my-app ${env.dockerHubUser}/new-app:latest"
-                sh "docker push  ${env.dockerHubUser}/new-app:latest"
-                echo "My docker image has been pushed to docker hub"
-                }
+                // echo "Pushing my image in docker hub"
+                // sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                // sh "docker image tag my-app ${env.dockerHubUser}/new-app:latest"
+                // sh "docker push  ${env.dockerHubUser}/new-app:latest"
+                // echo "My docker image has been pushed to docker hub"
+                // }
+
+                docker_push("docker-cred","myapp")
             }
         }
         
