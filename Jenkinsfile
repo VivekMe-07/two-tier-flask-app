@@ -53,15 +53,15 @@ post{
             to: "meshramvivek23@gmail.com",
             body: "Build success for my project",
             subject: "Build success for my project"
-            
+        }
+    }
+
     failure{
         script{
             emailext from: "mevivek632@gmail.com",
             to: "meshramvivek23@gmail.com",
             body: "Build has been failed",
             subject: "Build has been failed"
-        }
-    }
             
         }
     }
