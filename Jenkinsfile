@@ -4,7 +4,8 @@ pipeline{
     stages{
         stage("CODE"){
             steps{
-                git url: "https://github.com/VivekMe-07/two-tier-flask-app.git", branch: "master"
+                //git url: "https://github.com/VivekMe-07/two-tier-flask-app.git", branch: "master"
+                clone("https://github.com/VivekMe-07/two-tier-flask-app.git", "master")
                 echo "Code has been deployed"
             }
         }
