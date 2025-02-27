@@ -8,6 +8,12 @@ pipeline{
                 echo "Code has been deployed"
             }
         }
+
+        stage("Trivy File System Scan"){
+            steps{
+                sh "trivy fs . -o new-result.json"
+            }
+        }
         stage("BUILD"){
             steps{
                 sh "docker build -t my-app ."
